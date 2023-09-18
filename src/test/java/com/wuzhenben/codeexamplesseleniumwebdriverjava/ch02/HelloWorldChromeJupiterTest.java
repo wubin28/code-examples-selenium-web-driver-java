@@ -15,12 +15,11 @@ public class HelloWorldChromeJupiterTest {
 
     @BeforeAll
     static void setupClass() {
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().driverVersion("117.0.5938.88").setup();
     }
 
     @BeforeEach
     void setup() {
-        WebDriverManager.chromedriver().driverVersion("117.0.5938.88").setup();
         driver = new ChromeDriver();
     }
 

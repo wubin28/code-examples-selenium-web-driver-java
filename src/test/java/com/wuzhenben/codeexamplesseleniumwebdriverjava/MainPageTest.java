@@ -21,13 +21,13 @@ public class MainPageTest {
 
     @BeforeAll
     public static void setUpAll() {
+        WebDriverManager.chromedriver().driverVersion("117.0.5938.88").setup();
         Configuration.browserSize = "1280x800";
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
     @BeforeEach
     public void setUp() {
-        WebDriverManager.chromedriver().driverVersion("117.0.5938.88").setup();
         // Fix the issue https://github.com/SeleniumHQ/selenium/issues/11750
         Configuration.browserCapabilities = new ChromeOptions().addArguments("--remote-allow-origins=*");
         open("https://www.jetbrains.com/");
