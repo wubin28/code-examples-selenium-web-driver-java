@@ -3,6 +3,7 @@ package com.wuzhenben.codeexamplesseleniumwebdriverjava;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,6 +27,7 @@ public class MainPageTest {
 
     @BeforeEach
     public void setUp() {
+        WebDriverManager.chromedriver().driverVersion("117.0.5938.88").setup();
         // Fix the issue https://github.com/SeleniumHQ/selenium/issues/11750
         Configuration.browserCapabilities = new ChromeOptions().addArguments("--remote-allow-origins=*");
         open("https://www.jetbrains.com/");
